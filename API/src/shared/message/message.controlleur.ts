@@ -2,7 +2,7 @@ import { Controller, HttpStatus, Res, Get, Param, NotFoundException, Post, Body,
 import { MessageService } from './message.service';
 
 @Controller('message')
-export class messageController {
+export class MessageController {
     
     constructor(private MessageService: MessageService) { }
 

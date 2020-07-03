@@ -6,7 +6,7 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class toolService {
+export class ToolService {
   constructor(private http: HttpClient,private formBuilder : FormBuilder) { 
     this.createFormModel()
   }

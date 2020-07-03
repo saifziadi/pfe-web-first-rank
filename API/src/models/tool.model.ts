@@ -8,8 +8,7 @@ export interface Tool extends mongoose.Document {
     readonly rate: string;
     readonly url: string;
     readonly categorie: string;
-    readonly startDate: Date;
-    readonly endDate: Date;
+
     readonly status: boolean;
     readonly roles   : string[]; 
 }
@@ -21,8 +20,6 @@ export const ToolSchema = new mongoose.Schema({
     rate: { type: String, default: "" },
     url: { type: String, default: "" },
     categorie: { type: String, default: "" },
-    startDate: { type: Date, default: Date.now },
-    endDate: { type: Date, default: Date.now },
     roles   : [String],
     status: { type: Boolean, default: true },
 }, { timestamps: true });

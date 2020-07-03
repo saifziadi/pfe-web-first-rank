@@ -9,12 +9,12 @@ import { ConfigService } from './core/config/config.service';
 import { EventModule } from './shared/event/event.module';
 import { BlogModule } from './shared/blog/blog.module';
 import { MessageService } from './shared/message/message.service';
-import { MessageModule } from './shared/message/message/message.module';
-import { PaymentModule } from './shared/payment/payment.module';
-import { MessageModule } from './shared/message/message.module';
+
+
 import { ReviewModule } from './shared/review/review.module';
 import { ToolModule } from './shared/tool/tool.module';
 import { PaymentModule } from './shared/payment/payment.module';
+import { MessageModule } from './shared/message/message.module';
 
 
 @Module({
@@ -44,6 +44,6 @@ import { PaymentModule } from './shared/payment/payment.module';
   ],
   controllers: [AppController],
   providers: [
-  MessageService],
+  ],
 })
 export class AppModule {}

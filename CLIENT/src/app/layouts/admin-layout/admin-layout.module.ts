@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MaterialModule } from 'app/core/material/material.module';
+import { ReviewListComponent } from './review-list/review-list.component';
+
 
 @NgModule({
   imports: [
@@ -29,6 +31,8 @@ import { MaterialModule } from 'app/core/material/material.module';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
+    ReviewListComponent
+
   ]
 })
 export class AdminLayoutModule {}

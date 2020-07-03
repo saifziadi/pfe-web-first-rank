@@ -14,7 +14,8 @@ export const ROUTES: any[] = [
     { path: '/events/calendar', title: "Calendar",  icon:'event', class: '' },
     { role :'admin', path: '/events/list', title: "Events List",  icon:'event_note', class: '' },
     { role :'admin', path: '/agents/list', title: "Agents List",  icon:'people', class: '' },
-    { role :'admin', path: '/blogs/list', title: "Blogs List",  icon:'blog', class: '' },
+    { role :'admin', path: '/blogs/list', title: "Blogs List",  icon:'article', class: '' },
+    { role :'admin', path: '/tools/list', title: "Tools List",  icon:'highlight', class: '' },
     { path: '/profile', title: "User Profile",  icon:'person', class: '' },
 ];
 

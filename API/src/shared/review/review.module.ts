@@ -6,7 +6,7 @@ import {ReviewControlleur} from 'src/shared/review/review.controller'
 
 @Module({
   imports : [
-    MongooseModule.forFeature([{ name: 'Event', schema: ReviewSchema }]),
+    MongooseModule.forFeature([{ name: 'Review', schema: ReviewSchema }]),
   ],
   providers: [ReviewService],
   controllers: [ReviewControlleur]
