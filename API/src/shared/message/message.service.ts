@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Message } from 'src/models/Message.model';
+import { Message } from 'src/models/message.model';
 
 @Injectable()
 export class MessageService {

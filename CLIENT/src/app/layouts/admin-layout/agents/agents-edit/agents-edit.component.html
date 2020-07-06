@@ -88,14 +88,13 @@
                     <div class="card-body">
                         <h4 class="card-title"
                             *ngIf="!usersService.formModel.value.lastname && !usersService.formModel.value.firstname ;else elseNameBloc">
-                            Attijary Bank User</h4>
+                            Perycious User</h4>
                         <ng-template #elseNameBloc>
                             <h4 class="card-title">
                                 {{usersService.formModel.value.lastname+' '+usersService.formModel.value.firstname}}
                             </h4>
                         </ng-template>
-                        <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;"
-                            (change)="UploadImage($event.target.files)">
+                        <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;">
                     </div>
                 </div>
             </div>
