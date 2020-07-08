@@ -43,7 +43,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Category" formControlName="categorie">
+                                        <mat-error
+                                            *ngIf="toolService.formModel.get('categorie').hasError('required') && toolService.formModel.get('categorie').touched">
+                                            This field should not be empty.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="price" formControlName="price">
                                         <mat-error
@@ -51,7 +60,7 @@
                                             This field should not be empty.</mat-error>
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="rate" formControlName="rate">
                                         <mat-error

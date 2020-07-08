@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PaymentComponent } from './payment/payment.component';
 import { MessageComponent } from './message/message.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
+import { ToolsListComponent } from './tools/tools-list/tools-list.component';
+import { ToolsDetailsComponent } from './tools/tools-details/tools-details.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'blog/list', component: BlogListComponent },
   { path: 'review', component: ReviewPostComponent },
   { path: 'message', component: MessageComponent },
+  { path: 'tool/list', component: ToolsListComponent },
+  { path: 'tool/details', component: ToolsDetailsComponent },
 ];
 
 @NgModule({

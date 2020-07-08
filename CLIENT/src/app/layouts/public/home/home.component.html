@@ -8,22 +8,28 @@
 
 <div class="card text-center">
     <div class="card-header">
-      <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="nav-link active" >Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" >Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" >Disabled</a>
-        </li>
-      </ul>
+      <h3 class="card-title">Featured Tools</h3>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-outline-info" *ngFor="let item of tools"  [ngClass]="{'active':item.active}" (click)="activateCategory(item._id)">{{item._id}}</button>
+      </div>
     </div>
     <div class="card-body">
-
-        
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      
+      <div class="card-deck d-flex justify-content-center">
+        <div *ngFor="let tool of groupedTools" class="col-md-4">
+            <div class="card">
+                <img class="card-img-top img-fluid" [src]="tool.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{tool.title}}</h5>
+                    <p class="card-text">{{tool.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Creation Date {{tool.createdAt | date : 'medium'}}</small>
+                </div>
+            </div>
+        </div>
+      </div>
+      <a routerLink="/tool/list" class="btn btn-info">See All Tools</a>
     </div>
   </div>
 

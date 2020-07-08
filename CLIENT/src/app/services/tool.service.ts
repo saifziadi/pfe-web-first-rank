@@ -54,6 +54,10 @@ export class ToolService {
     return this.http.get(this.BaseURI+'/getAll')
   }
   
+  GroupedByCategory(){
+    return this.http.get(this.BaseURI+'/GroupedByCategory')
+  }
+  
   getById(id : string){
     return this.http.get(this.BaseURI+'/'+id)
   }

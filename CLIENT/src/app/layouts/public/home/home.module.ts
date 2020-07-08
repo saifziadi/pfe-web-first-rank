@@ -11,10 +11,12 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { NavBarComponent } from './extra/nav-bar/nav-bar.component';
 import { CarrouselComponent } from './extra/carrousel/carrousel.component';
 import { BlogCardsComponent } from './blog-cards/blog-cards.component';
+import { ToolsListComponent } from './tools/tools-list/tools-list.component';
+import { ToolsDetailsComponent } from './tools/tools-details/tools-details.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent, BlogCardsComponent],
+  declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent, BlogCardsComponent, ToolsListComponent, ToolsDetailsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule

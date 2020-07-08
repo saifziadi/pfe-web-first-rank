@@ -13,6 +13,28 @@ export class ToolService {
         const result = await this.Model.find();
         return result;
     }
+
+    async getAllToolsByCategory(){
+        return await this.Model.aggregate([
+            {
+                '$group': {
+                  '_id': '$categorie',
+                  'tools': {
+                    '$push': {
+                    _id : '$_id', 
+                    title : '$title', 
+                    category : '$category', 
+                    description : '$description',
+                    price : '$price', 
+                    rate : '$rate',
+                    imageUrl : '$imageUrl',
+                    createdAt : '$createdAt',
+                },
+                  }
+                },
+              }
+        ]); 
+    }
     
     // Get a single Document
     async getById(id): Promise<Tool> {
