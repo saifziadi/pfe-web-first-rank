@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AgentsEditComponent {
 
-  roles: any = ["admin","RH","IT"]
+  roles: any = ["admin","CC","CM","NOROLE"]
 
   constructor(private usersService: UsersService,
     private router: Router,

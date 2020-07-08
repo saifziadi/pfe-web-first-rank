@@ -88,7 +88,7 @@
                     <div class="card-body">
                         <h4 class="card-title"
                             *ngIf="!usersService.formModel.value.lastname && !usersService.formModel.value.firstname ;else elseNameBloc">
-                            Perycious User</h4>
+                            Precious User</h4>
                         <ng-template #elseNameBloc>
                             <h4 class="card-title">
                                 {{usersService.formModel.value.lastname+' '+usersService.formModel.value.firstname}}

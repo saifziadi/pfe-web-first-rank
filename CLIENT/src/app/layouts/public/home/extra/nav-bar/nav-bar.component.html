@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between mb-0">
+    <a class="navbar-brand" routerLink="">Precious</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="" click>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/blog/list">Blogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/review">Review</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/message">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <form class="form-inline mr-2">
+        <input class="form-control  md-12 mr-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0" *ngIf="!connected" routerLink="/login" type="submit">Login</button>
+        <button class="btn btn-outline-info my-2 my-sm-0" *ngIf="connected" routerLink="/dashboard" type="submit">Dashboard</button>
+    </form>
+</nav>
+

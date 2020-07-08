@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EventsEditComponent {
 
-  roles: any = ["RH","IT"]
+  roles: any = ["CM","CC","NOROLE"]
 
   date: string;
   constructor(private eventService : EventsService,
