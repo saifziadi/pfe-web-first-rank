@@ -10,10 +10,11 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { NavBarComponent } from './extra/nav-bar/nav-bar.component';
 import { CarrouselComponent } from './extra/carrousel/carrousel.component';
+import { BlogCardsComponent } from './blog-cards/blog-cards.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent],
+  declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent, BlogCardsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule

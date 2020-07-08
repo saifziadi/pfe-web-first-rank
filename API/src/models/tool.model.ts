@@ -8,6 +8,7 @@ export interface Tool extends mongoose.Document {
     readonly rate: string;
     readonly url: string;
     readonly categorie: string;
+    readonly imageUrl: string;
 
     readonly status: boolean;
     readonly roles   : string[]; 
@@ -19,6 +20,7 @@ export const ToolSchema = new mongoose.Schema({
     price: { type: String, default: "" },
     rate: { type: String, default: "" },
     url: { type: String, default: "" },
+    imageUrl: { type: String, default: "" },
     categorie: { type: String, default: "" },
     roles   : [String],
     status: { type: Boolean, default: true },

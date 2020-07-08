@@ -1,20 +1,22 @@
 <app-nav-bar></app-nav-bar>
 
-<!-- <app-carrousel></app-carrousel> -->
-
-<!-- <p>homeeee works!</p> -->
+<div class="main-content">
+    <div class="container" style="max-width: 1200px;">
+        <app-carrousel></app-carrousel>
+    </div>
+</div>
 
 <div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link active" >Active</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" >Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" >Disabled</a>
         </li>
       </ul>
     </div>
@@ -26,52 +28,4 @@
   </div>
 
 
-  <div class="card text-center">
-
-    <div class="card-body">
-
-        <h3 class="card-title">Blogs List</h3>        
-<div class="card-deck row">
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-fluid" src="/assets/img/bg-1.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">How to be an digital marketer</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-fluid" src="/assets/img/bg-2.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">How to be a community manager.</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-fluid" src="/assets/img/bg-3.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">How to be an content creator.</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-    </div>
-</div>
-      <a href="#" class="btn btn-info">See All Blogs</a>
-    </div>
-  </div>
+ <app-blog-cards></app-blog-cards>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between mb-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between ">
     <a class="navbar-brand" routerLink="">Precious</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@
         <input class="form-control  md-12 mr-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-info my-2 my-sm-0" *ngIf="!connected" routerLink="/login" type="submit">Login</button>
         <button class="btn btn-outline-info my-2 my-sm-0" *ngIf="connected" routerLink="/dashboard" type="submit">Dashboard</button>
+        <button class="btn btn-outline-info my-2 my-sm-0" *ngIf="connected" (click)="accountService.logout()" type="submit">Logout</button>
     </form>
 </nav>
 
