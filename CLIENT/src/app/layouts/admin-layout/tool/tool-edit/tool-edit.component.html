@@ -20,7 +20,7 @@
                                             This field should not be empty.</mat-error>
                                     </mat-form-field>
                                 </div>
-                                    <div class="col-md-4">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Creation Date"
                                             [value]="toolService.formModel.get('createdAt').value | date : 'medium'"
@@ -42,32 +42,25 @@
                                     </mat-form-field>
                                 </div>
                             </div>
-<div class="row">
-    <div class="col-md-4">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="price" formControlName="price">
-            <mat-error
-                *ngIf="toolService.formModel.get('price').hasError('required') && toolService.formModel.get('price').touched">
-                This field should not be empty.</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="col-md-4">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="rate" formControlName="rate">
-            <mat-error
-                *ngIf="toolService.formModel.get('rate').hasError('required') && toolService.formModel.get('rate').touched">
-                This field should not be empty.</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="col-md-4">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="url" formControlName="url">
-            <mat-error
-                *ngIf="toolService.formModel.get('url').hasError('required') && toolService.formModel.get('url').touched">
-                This field should not be empty.</mat-error>
-        </mat-form-field>
-    </div>
-</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="price" formControlName="price">
+                                        <mat-error
+                                            *ngIf="toolService.formModel.get('price').hasError('required') && toolService.formModel.get('price').touched">
+                                            This field should not be empty.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="rate" formControlName="rate">
+                                        <mat-error
+                                            *ngIf="toolService.formModel.get('rate').hasError('required') && toolService.formModel.get('rate').touched">
+                                            This field should not be empty.</mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -95,15 +88,13 @@
             </div>
             <div class="col-md-4 ">
                 <div class="card card-profile">
-                    <div class="card-avatar" style="width: 150px;height: 150px;background-color: white;">
-                        <!-- <img class="img" src="./assets/img/faces/marc.jpg" /> -->
-                        <div style="padding-top: 50px;font-size: 60px;">
-                            <p *ngIf="!toolService.formModel.value.title;else titleBlocChar"><strong>B</strong>
-                            </p>
-                            <ng-template #titleBlocChar>
-                                <p><strong>{{toolService.formModel.value.title[0]}}</strong></p>
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" class="img-fluid" *ngIf="toolService.formModel.value.imageUrl && toolService.formModel.value.imageUrl!='http://localhost:3000/avatars/' ;else avatarBloc" [src]="toolService.formModel.value.imageUrl" />
+                            <ng-template #avatarBloc>
+                                <img src="img" class="img-fluid" src="../../../../assets/img/toolimage.jpg">
                             </ng-template>
-                        </div>
+                        </a>
                     </div>
                     <div class="card-body">
                         <h6 class="card-category text-gray">tool</h6>
@@ -126,6 +117,9 @@
                         <ng-template #descriptionBloc>
                             <p class="card-description">{{toolService.formModel.value.description}}</p>
                         </ng-template>
+                        <label for="myfile"><a  style="color: white;" class="btn btn-info btn-round">Upload</a></label>
+                        <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;" (change)="UploadImage($event.target.files)">
+
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ export class ToolService {
       description: body.description,
       price: body.price,
       rate: body.rate,
-      url: body.url,
+      imageUrl: body.imageUrl,
       categorie: body.categorie,
       status : body.status,
       createdAt: body.createdAt,
@@ -34,12 +34,20 @@ export class ToolService {
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required]],
+      imageUrl: '',
       rate: ['', [Validators.required]],
-      url: ['', [Validators.required]],
       categorie: ['', [Validators.required]],
       status : [false, [Validators.required]],
       createdAt: [new Date(), [Validators.required]],
     })
+  }
+
+  UploadImage(file : File) {
+    return this.http.post(this.BaseURI + '/avatar/',file);
+  }
+  
+  UpdateImage(file : File) {
+    return this.http.put(this.BaseURI + '/avatar/update/'+this.formModel.value._id,file);
   }
 
   getAll(){

@@ -16,10 +16,6 @@ export class AccountService {
     return this.http.post(this.BaseURI + 'user/avatar/',file);
   }
 
-  GetImageUrl() {
-    return this.http.get(this.BaseURI + 'user/avatar/url/');
-  }
-
   registerForUser(body : any) {
     return this.http.post(this.BaseURI + 'auth/register', body);
   }

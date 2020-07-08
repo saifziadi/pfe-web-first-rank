@@ -1,10 +1,71 @@
-import { Controller, Get, Post, Body, Res, HttpStatus, Param, Put, Delete, NotFoundException } from '@nestjs/common';
+import { diskStorage } from 'multer';
+import { Controller, Get, Post, Body, Res, HttpStatus, Param, Put, Delete, NotFoundException, UseGuards, UseInterceptors, UploadedFile, Req } from '@nestjs/common';
 import { ToolService } from './tool.service';
+import { AuthGuard } from '@nestjs/passport';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { extname } from 'path';
+import { ConfigService } from 'src/core/config/config.service';
 
 @Controller('tool')
 export class ToolSControlleur {
 
-    constructor(private ToolService: ToolService) { }
+    constructor(private ToolService: ToolService,private configService: ConfigService) { }
+
+
+    @Post('avatar/')
+    @UseGuards(AuthGuard('jwt'))
+    @UseInterceptors(FileInterceptor('file',
+        {
+            storage: diskStorage({
+                destination: './avatars/tools',
+                filename: (req, file, cb) => {
+                    const randomName = Array(32).fill(null).map(() => (Math.round(Math.random() * 16)).toString(16)).join('')
+                    return cb(null, `${randomName}${extname(file.originalname)}`)
+                }
+            })
+        }
+    ))
+    async uploadAvatar(@Res() res, @UploadedFile() file) {
+        let originalpath = this.configService.get('APP_URI') + file.path
+        return res.status(HttpStatus.OK).json(originalpath);
+    }
+
+
+
+    @Put('avatar/update/:id')
+    @UseGuards(AuthGuard('jwt'))
+    @UseInterceptors(FileInterceptor('file',
+        {
+            storage: diskStorage({
+                destination: './avatars/tools',
+                filename: (req, file, cb) => {
+                    const randomName = Array(32).fill(null).map(() => (Math.round(Math.random() * 16)).toString(16)).join('')
+                    return cb(null, `${randomName}${extname(file.originalname)}`)
+                }
+            })
+        }
+    ))
+    async updateAvatar(@Res() res, @UploadedFile() file,@Param('id') id) {
+        let doc = await this.ToolService.getById(id);
+        let originalpath = this.configService.get('APP_URI') + file.path
+        doc.imageUrl = originalpath
+        this.ToolService.updateDocumet(id,doc)
+        return res.status(HttpStatus.OK).json(originalpath);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // Retrieve documents list

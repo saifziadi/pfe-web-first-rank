@@ -16,7 +16,7 @@ export class ToolListComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['position', 'title','categorie','price','rate','url','status', 'createdAt', 'action'];
+  displayedColumns: string[] = ['position', 'title','categorie','price','rate','status', 'createdAt', 'action'];
 
   constructor(private ToolService : ToolService,
     private accountService : AccountService,

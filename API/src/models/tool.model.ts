@@ -8,7 +8,7 @@ export interface Tool extends mongoose.Document {
     readonly rate: string;
     readonly url: string;
     readonly categorie: string;
-    readonly imageUrl: string;
+     imageUrl: string;
 
     readonly status: boolean;
     readonly roles   : string[]; 
