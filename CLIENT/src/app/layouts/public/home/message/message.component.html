@@ -1,33 +1,33 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="main-content">
-    <div class="container" >
-        <div class="card text-center">
-            <div class="card-header">
-              <h3 class="card-title">Contact</h3>
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <h3 class="card-title">Contact</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="messageService.formModel">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="messageService.formModel.get('email').hasError('required') && messageService.formModel.get('email').touched">This field should not be empty.</mat-error>
+            <mat-error *ngIf="messageService.formModel.get('email').hasError('email')">This field should not be valid email.</mat-error>
+        </mat-form-field>
         
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Subject" formControlName="subject">
+            <mat-error *ngIf="messageService.formModel.get('subject').hasError('required') && messageService.formModel.get('subject').touched">This field should not be empty.</mat-error>
+        </mat-form-field>
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Subject</label>
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Subject">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Message</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Message"></textarea>
-                  </div>
-        
-
-                  <button type="submit" class="btn btn-outline-info">Send Message</button>
-            </div>
-          </div>
-        
+      <mat-form-field>
+            <textarea  matInput class="form-control"  formControlName="content"
+              rows="3" placeholder="Enter Message"></textarea>
+              <mat-error *ngIf="messageService.formModel.get('content').hasError('required') && messageService.formModel.get('content').touched">This field should not be empty.</mat-error>
+          </mat-form-field>
+        </form>
+        <button type="submit" class="btn btn-outline-info" (click)="onSubmit()" [disabled]="messageService.formModel.invalid">Send Message</button>
+      </div>
     </div>
+
+  </div>
 </div>

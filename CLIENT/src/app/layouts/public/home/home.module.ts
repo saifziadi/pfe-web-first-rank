@@ -13,13 +13,18 @@ import { CarrouselComponent } from './extra/carrousel/carrousel.component';
 import { BlogCardsComponent } from './blog-cards/blog-cards.component';
 import { ToolsListComponent } from './tools/tools-list/tools-list.component';
 import { ToolsDetailsComponent } from './tools/tools-details/tools-details.component';
+import { MaterialModule } from 'app/core/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent, BlogCardsComponent, ToolsListComponent, ToolsDetailsComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class HomeModule { }

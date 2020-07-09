@@ -15,18 +15,11 @@ export class MessageService {
 
   formModel : FormGroup
 
-  fillFormModel(body){
-    this.formModel.patchValue({
-      _id: body._id,
-      content: body.title,
-   
-    })
-  }
-
   createFormModel() {
     this.formModel = this.formBuilder.group({
-      _id: '',
-      title: ['', [Validators.required]],
+      email: ['', [Validators.required,Validators.email]],
+      subject: ['', [Validators.required]],
+      content: ['', [Validators.required]],
      
     })
   }
@@ -43,9 +36,8 @@ export class MessageService {
     return this.http.get(this.BaseURI+'/check/'+id)
   }
 
-  createNew(body){
-    delete this.formModel.value._id
-    return this.http.post(this.BaseURI+'/create',body)
+  createNew(){
+    return this.http.post(this.BaseURI+'/create',this.formModel.value)
   }
 
   editById(id : string , body){

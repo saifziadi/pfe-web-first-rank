@@ -17,6 +17,7 @@ export const ROUTES: any[] = [
     { role :'admin', path: '/blogs/list', title: "Blogs List",  icon:'article', class: '' },
     { role :'admin', path: '/tools/list', title: "Tools List",  icon:'highlight', class: '' },
     { path: '/profile', title: "User Profile",  icon:'person', class: '' },
+    { path: '/contacts/list', title: "Contacts List",  icon:'contact', class: '' },
 ];
 
 @Component({

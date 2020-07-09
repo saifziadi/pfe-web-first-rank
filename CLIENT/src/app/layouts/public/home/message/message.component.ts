@@ -1,3 +1,4 @@
+import { MessageService } from './../../../../services/message.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messageService : MessageService) { }
 
   ngOnInit(): void {
+  }
+
+
+  onSubmit(){
+    this.messageService.createNew()
+    .subscribe(res=>{
+      console.log("res : ",res)
+    })
   }
 
 }
