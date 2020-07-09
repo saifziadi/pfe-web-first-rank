@@ -9,8 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 
-
-
 @NgModule({
   declarations: [LoginComponent,RegisterComponent],
   imports: [
@@ -20,7 +18,7 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HomeModule
+    HomeModule,
   ],
 })
 export class ClientModule { }

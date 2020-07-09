@@ -23,12 +23,13 @@ export class ToolService {
                     '$push': {
                     _id : '$_id', 
                     title : '$title', 
-                    category : '$category', 
+                    categorie : '$categorie', 
                     description : '$description',
                     price : '$price', 
                     rate : '$rate',
                     imageUrl : '$imageUrl',
                     createdAt : '$createdAt',
+                    status : '$status',
                 },
                   }
                 },

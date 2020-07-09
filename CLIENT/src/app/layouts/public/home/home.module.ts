@@ -16,7 +16,6 @@ import { ToolsDetailsComponent } from './tools/tools-details/tools-details.compo
 import { MaterialModule } from 'app/core/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [HomeComponent, MessageComponent, ReviewPostComponent, PaymentComponent, BlogDetailsComponent, NavBarComponent, BlogListComponent,CarrouselComponent, BlogCardsComponent, ToolsListComponent, ToolsDetailsComponent],
   imports: [
@@ -24,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class HomeModule { }

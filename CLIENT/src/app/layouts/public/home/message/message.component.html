@@ -7,7 +7,7 @@
         <h3 class="card-title">Contact</h3>
       </div>
       <div class="card-body">
-        <form [formGroup]="messageService.formModel">
+        <form [formGroup]="messageService.formModel" #regForm="ngForm">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Email" formControlName="email">
             <mat-error *ngIf="messageService.formModel.get('email').hasError('required') && messageService.formModel.get('email').touched">This field should not be empty.</mat-error>

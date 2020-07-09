@@ -11,7 +11,6 @@ export class ReviewService {
     this.createFormModel()
   }
   BaseURI = environment.apiUrl+"review";
-
   formModel : FormGroup
 
   fillFormModel(body){
@@ -33,7 +32,6 @@ export class ReviewService {
       efficiency: ['', [Validators.required]],
       price: ['', [Validators.required]],
       comment: ['', [Validators.required]],
-      url: ['', [Validators.required]],
       status : [false, [Validators.required]],
       createdAt: [new Date(), [Validators.required]],
     })
@@ -51,9 +49,9 @@ export class ReviewService {
     return this.http.get(this.BaseURI+'/check/'+id)
   }
 
-  createNew(body){
+  createNew(){
     delete this.formModel.value._id
-    return this.http.post(this.BaseURI+'/create',body)
+    return this.http.post(this.BaseURI+'/create',this.formModel.value)
   }
 
   editById(id : string , body){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'app/services/account.service';
 import { ToolService } from 'app/services/Tool.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tools-list',
@@ -12,8 +13,7 @@ export class ToolsListComponent implements OnInit {
   tools: any = []
   groupedTools : any = []
 
-  constructor(private accountService: AccountService,
-    private toolService: ToolService,) {
+  constructor(private router : Router,private toolService: ToolService) {
       this.GroupedByCategory()
      }
 
@@ -33,6 +33,11 @@ export class ToolsListComponent implements OnInit {
 
         }
       })
+  }
+
+  goToDetails(tool){
+      this.toolService.fillFormModel(tool)
+      this.router.navigateByUrl('/tool/details')
   }
 
   activateCategory(id){

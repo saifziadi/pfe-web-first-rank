@@ -1,3 +1,90 @@
 <app-nav-bar></app-nav-bar>
 
-<p>tools-details works!</p>
+<div class="container">
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1">
+                            <img [src]="toolDetails.imageUrl" />
+                        </div>
+                    </div>
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="price">Title: <span class="price pt-1">{{toolDetails.title}}</span></h3>
+                    <h4 class="price">Category: <span class="price pt-1">{{toolDetails.categorie}}</span></h4>
+                        
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews</span>
+                    </div>
+                    <p class="product-description">{{toolDetails.description}}</p>
+                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                    <h4 class="price">current price: <span>{{toolDetails.price}} TND</span></h4>
+
+
+                    <div class="action">
+                        <button class="btn btn-outline-info" type="button" routerLink="/payment">Buy Now!</button>
+                        <button class="btn btn-info" type="button"><span class="fa fa-heart"></span></button>
+                    </div>
+
+
+                    <ng-container *ngIf="isConnected">
+                        <h4 class="price mt-5">Review:</h4>
+                        <div class="d-flex justify-content-start">
+                            <h4>Efficiency: </h4>
+                            <ng-container *ngFor="let item of efficiencyRatingList">
+                                <span class="fa fa-star ml-1 pt-1" [ngClass]="{'checked': item.value}"
+                                    (click)="checkRating(item.name,'efficiency')"></span>
+                            </ng-container>
+                        </div>
+
+                        <div class="d-flex">
+                            <h4>Support: </h4>
+                            <ng-container *ngFor="let item of supportRatingList">
+                                <span class="fa fa-star ml-1 pt-1" [ngClass]="{'checked': item.value}"
+                                    (click)="checkRating(item.name,'support')"></span>
+                            </ng-container>
+                        </div>
+
+                        <div class="d-flex">
+                            <h4>Price: </h4>
+                            <ng-container *ngFor="let item of priceRatingList">
+                                <span class="fa fa-star ml-1 pt-1" [ngClass]="{'checked': item.value}"
+                                    (click)="checkRating(item.name,'price')"></span>
+                            </ng-container>
+                        </div>
+
+
+                        <form [formGroup]="reviewService.formModel" #regForm="ngForm">
+                            <mat-form-field>
+                                <textarea matInput class="form-control" formControlName="comment" rows="3"
+                                    placeholder="Enter Message"></textarea>
+                                <mat-error
+                                    *ngIf="reviewService.formModel.get('comment').hasError('required') && reviewService.formModel.get('comment').touched">
+                                    This field should not be empty.</mat-error>
+                            </mat-form-field>
+                        </form>
+                        <button type="submit" class="btn btn-info" (click)="onSubmit()"
+                            [disabled]="reviewService.formModel.invalid">Submit
+                        </button>
+                    </ng-container>
+
+                </div>
+                <!-- <div >
+                    <ng-container *ngFor="let item of reviews" class="d-block">
+                        <h class="price">Anonymous User: <span>{{item.comment}}</span></h>
+                    </ng-container>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

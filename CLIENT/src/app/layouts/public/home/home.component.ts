@@ -1,6 +1,7 @@
 import { ToolService } from 'app/services/Tool.service';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   connected: boolean = false
   constructor(
     private accountService: AccountService,
+    private router: Router,
     private toolService: ToolService,
   ) {
     let token = this.accountService.getDecodedToken();
@@ -39,6 +41,12 @@ export class HomeComponent implements OnInit {
         }
       })
   }
+
+
+  goToDetails(tool){
+    this.toolService.fillFormModel(tool)
+    this.router.navigateByUrl('/tool/details')
+}
 
   activateCategory(id){
     this.tools.map(x=>{
