@@ -1,3 +1,4 @@
+import { ToolService } from 'app/services/Tool.service';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'app/services/account.service';
 import { Router } from '@angular/router';
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
     private accountService: AccountService,
     private usersService: UsersService,
     private eventSerivce: EventsService,
+    private toolService: ToolService,
     private router: Router) {
 
     let token = this.accountService.getDecodedToken();
@@ -29,6 +31,7 @@ export class DashboardComponent implements OnInit {
     }
     this.getAllAgents()
     this.getAllEvents()
+    this.getAllTools()
   }
   ngOnInit(): void {
 
@@ -43,6 +46,31 @@ export class DashboardComponent implements OnInit {
     let pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "Agent Number";
     pieSeries.dataFields.category = "role";
+  }
+  toolsRolePieChart(chartData) {
+    let chart = am4core.create("toolsPieChart", am4charts.PieChart);
+    // Add data
+    chart.data = chartData;
+
+    // Add and configure Series
+    let pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "Tools count";
+    pieSeries.dataFields.category = "category";
+  }
+
+  getAllTools(){
+    this.toolService.GroupedByCategory()
+    .subscribe((response: any) => {
+      console.log("users : ", response)
+      let chartData = []
+      response.map(res=>{
+        chartData.push({
+          "category": res._id,
+          "Tools count": res.tools.length
+        })
+      })
+      this.toolsRolePieChart(chartData)
+    })
   }
 
   getAllAgents() {
