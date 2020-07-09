@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from 'app/core/material/material.module';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { PaymentListComponent } from './payment-list/payment-list.component';
+import { ImageDialogComponent } from './payment-list/image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     DashboardComponent,
     UserProfileComponent,
     ReviewListComponent,
-    ContactListComponent
+    ContactListComponent,
+    PaymentListComponent,
+    ImageDialogComponent
 
   ]
 })

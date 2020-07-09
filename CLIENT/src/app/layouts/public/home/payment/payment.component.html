@@ -51,9 +51,9 @@
                                 This field should not be empty.</mat-error>
                         </mat-form-field>
                         <mat-form-field class="example-full-width col-md-12">
-                            <input matInput placeholder="Address" formControlName="adresse">
+                            <input matInput placeholder="Address" formControlName="address">
                             <mat-error
-                                *ngIf="paymentService.formModel.get('adresse').hasError('required') && paymentService.formModel.get('adresse').touched">
+                                *ngIf="paymentService.formModel.get('address').hasError('required') && paymentService.formModel.get('address').touched">
                                 This field should not be empty.</mat-error>
                         </mat-form-field>
                     </div>
@@ -63,7 +63,7 @@
                 <button type="submit" class="btn btn-outline-info" (click)="onSubmit()"
                     [disabled]="paymentService.formModel.invalid">Submit</button>
                     
-                    <button class="btn " (click)="close()">Close</button>
+                    <button class="btn btn-outline-danger" (click)="close()">Close</button>
             </div>
         </div>
 

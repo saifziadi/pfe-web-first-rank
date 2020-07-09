@@ -15,31 +15,7 @@ export class PaymentService {
 
   formModel : FormGroup
 
-  fillFormModel(body){
-    this.formModel.patchValue({
-      _id: body._id,
-      firstname: body.firstname,
-      lastname: body.lastname,
-      adresse: body.adresse,
-      toolId: body.toolId,
-      imageUrl: body.imageUrl,
-      status : body.status,
-      createdAt: body.createdAt,
-    })
-  }
 
-  createFormModel() {
-    this.formModel = this.formBuilder.group({
-      _id: '',
-      firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      adresse: ['', [Validators.required]],
-      toolId: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required]],
-      status : [false, [Validators.required]],
-      createdAt: new Date(),
-    })
-  }
 
   UploadImage(file : File) {
     return this.http.post(this.BaseURI + '/avatar/',file);
@@ -68,5 +44,31 @@ export class PaymentService {
 
   deleteById(id){
     return this.http.delete(this.BaseURI+'/delete/'+id)
+  }
+
+  fillFormModel(body){
+    this.formModel.patchValue({
+      _id: body._id,
+      firstname: body.firstname,
+      lastname: body.lastname,
+      address: body.address,
+      toolId: body.toolId,
+      imageUrl: body.imageUrl,
+      status : body.status,
+      createdAt: body.createdAt,
+    })
+  }
+
+  createFormModel() {
+    this.formModel = this.formBuilder.group({
+      _id: '',
+      firstname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      toolId: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required]],
+      status : [false, [Validators.required]],
+      createdAt: new Date(),
+    })
   }
 }

@@ -46,6 +46,8 @@ export class DashboardComponent implements OnInit {
     let pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "Agent Number";
     pieSeries.dataFields.category = "role";
+    chart.exporting.menu = new am4core.ExportMenu();
+
   }
   toolsRolePieChart(chartData) {
     let chart = am4core.create("toolsPieChart", am4charts.PieChart);
@@ -56,6 +58,8 @@ export class DashboardComponent implements OnInit {
     let pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "Tools count";
     pieSeries.dataFields.category = "category";
+    chart.exporting.menu = new am4core.ExportMenu();
+
   }
 
   getAllTools(){

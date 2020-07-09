@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.css']
 })
-export class ReviewListComponent implements OnInit {
+export class ReviewListComponent {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -21,9 +21,6 @@ export class ReviewListComponent implements OnInit {
   ) { 
     this.getAllReviews()
 
-  }
-
-  ngOnInit(): void {
   }
 
   getAllReviews(){

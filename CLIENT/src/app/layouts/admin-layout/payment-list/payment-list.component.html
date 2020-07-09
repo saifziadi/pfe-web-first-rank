@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Payments Table</h4>
+                        <p class="card-category">Manage payments</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="container d-flex justify-content-between align-items-center">
+                                <mat-form-field style="width:80%">
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                                </mat-form-field>
+                                <button mat-raised-button class="btn btn-outline-danger" routerLink="/tools/add">Add
+                                    Tool</button>
+                            </div>
+                            <div class="table-responsive-x" *ngIf="dataSource && dataSource.data.length>0">
+                                <table mat-table [dataSource]="dataSource" class="w-100 table-scroll-wrap">
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="position">
+                                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                                        <td mat-cell *matCellDef="let element;let i = index;"> {{i}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="firstname">
+                                        <th mat-header-cell *matHeaderCellDef> First Name </th>
+                                        <td mat-cell *matCellDef="let element"> {{element?.firstname}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="lastname">
+                                        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                                        <td mat-cell *matCellDef="let element"> {{element?.lastname}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="address">
+                                        <th mat-header-cell *matHeaderCellDef> Address </th>
+                                        <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="imageUrl">
+                                        <th mat-header-cell *matHeaderCellDef> ImageUrl </th>
+                                        <td mat-cell *matCellDef="let element"> <img [src]="element?.imageUrl" (click)="openDialog(element.imageUrl)" style="cursor: pointer;" width="50px"> </td>
+                                    </ng-container>
+                                    <!-- createdAt Column -->
+                                    <ng-container matColumnDef="createdAt">
+                                        <th mat-header-cell *matHeaderCellDef> Creation Date </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            {{element?.createdAt | date : 'dd/MM/yyyy'}}</td>
+                                    </ng-container>
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
