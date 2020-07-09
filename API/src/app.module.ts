@@ -8,7 +8,6 @@ import { ConfigModule } from './core/config/config.module';
 import { ConfigService } from './core/config/config.service';
 import { EventModule } from './shared/event/event.module';
 import { BlogModule } from './shared/blog/blog.module';
-import { MessageService } from './shared/message/message.service';
 
 
 import { ReviewModule } from './shared/review/review.module';
@@ -23,7 +22,6 @@ import { MessageModule } from './shared/message/message.module';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        // uri: `mongodb://${configService.get('DB_URI')}/${configService.get('DB_NAME')}`,
         uri: `mongodb+srv://${configService.get('DB_USER')}:${configService.get('DB_PWD')}@${configService.get('DB_URI')}/${configService.get('DB_NAME')}?${configService.get('DB_PARAMS')}`,
         useNewUrlParser: true
       }),

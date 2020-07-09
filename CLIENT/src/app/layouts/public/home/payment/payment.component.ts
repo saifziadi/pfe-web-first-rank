@@ -1,7 +1,9 @@
+import { PaymentService } from './../../../../services/payment.service';
 import { Component, OnInit } from '@angular/core';
 import { ToolService } from 'app/services/Tool.service';
 import { Router } from '@angular/router';
 import { AccountService } from 'app/services/account.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-payment',
@@ -13,6 +15,8 @@ export class PaymentComponent implements OnInit {
   isConnected: boolean = false;
 
   constructor(
+    private paymentService: PaymentService,
+    private dialogRef: MatDialogRef<PaymentComponent>,
     private toolService: ToolService,
     private accountService: AccountService,
     private router: Router
@@ -32,5 +36,9 @@ export class PaymentComponent implements OnInit {
     console.clear()
     console.log(this.toolService.formModel.value);
   }
+
+  close() {
+    this.dialogRef.close();
+}
 
 }

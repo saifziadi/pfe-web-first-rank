@@ -10,6 +10,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
 
   ],
   exports : [
@@ -40,7 +42,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
     
   ]
 })

@@ -1,3 +1,70 @@
-<app-nav-bar></app-nav-bar>
+<div class="main-content">
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <h3 class="card-title">Payment</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="paymentService.formModel" #regForm="ngForm">
+                    <div class="row">
+                        <div class="card card-profile col-12">
+                            <div class="card-avatar">
+                                <a href="javascript:void(0)">
+                                    <img class="img" class="img-fluid"
+                                        *ngIf="toolService.formModel.value.imageUrl && toolService.formModel.value.imageUrl!='http://localhost:3000/avatars/' ;else avatarBloc"
+                                        [src]="toolService.formModel.value.imageUrl" />
+                                    <ng-template #avatarBloc>
+                                        <img src="img" class="img-fluid" src="../../../../assets/img/toolimage.jpg">
+                                    </ng-template>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-category text-gray">tool</h6>
+                                <h4 class="card-title" style="display: -webkit-inline-box;">
+                                    <p *ngIf="!toolService.formModel.value.title;else titleBloc">tool Title</p>
+                                    <ng-template #titleBloc>
+                                        <p>{{toolService.formModel.value.title}}</p>
+                                    </ng-template>
+                                </h4>
+                                <p class="card-content" *ngIf="!toolService.formModel.value.content;else contentBloc">  
+                                    Don't be scared of the truth because we need to restart the human foundation in truth And I
+                                    love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                </p>
+                                <ng-template #contentBloc>
+                                    <p class="card-content">{{toolService.formModel.value.content}}</p>
+                                </ng-template>
+                                <label for="myfile"><a  style="color: white;" class="btn btn-info btn-round">Upload</a></label>
+                                <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;" (change)="UploadImage($event.target.files)">
+                            </div>
+                        </div>
 
-<p>payment works!</p>
+                        <mat-form-field class="example-full-width col-md-6">
+                            <input matInput placeholder="First Name" formControlName="firstname">
+                            <mat-error
+                                *ngIf="paymentService.formModel.get('firstname').hasError('required') && paymentService.formModel.get('firstname').touched">
+                                This field should not be empty.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width col-md-6">
+                            <input matInput placeholder="Last Name" formControlName="lastname">
+                            <mat-error
+                                *ngIf="paymentService.formModel.get('lastname').hasError('required') && paymentService.formModel.get('lastname').touched">
+                                This field should not be empty.</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width col-md-12">
+                            <input matInput placeholder="Address" formControlName="adresse">
+                            <mat-error
+                                *ngIf="paymentService.formModel.get('adresse').hasError('required') && paymentService.formModel.get('adresse').touched">
+                                This field should not be empty.</mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-outline-info" (click)="onSubmit()"
+                    [disabled]="paymentService.formModel.invalid">Submit</button>
+                    
+                    <button class="btn " (click)="close()">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

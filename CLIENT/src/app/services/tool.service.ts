@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'environments/environment';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { PaymentComponent } from 'app/layouts/public/home/payment/payment.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToolService {
-  constructor(private http: HttpClient,private formBuilder : FormBuilder) { 
+  constructor(private http: HttpClient,private formBuilder : FormBuilder,
+    private dialog: MatDialog,
+    ) {
     this.createFormModel()
   }
   BaseURI = environment.apiUrl+"tool";
@@ -28,6 +33,20 @@ export class ToolService {
     })
   }
 
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height ="800px"
+    dialogConfig.width ="600px"
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(PaymentComponent, dialogConfig);
+}
+
+
+
   createFormModel() {
     this.formModel = this.formBuilder.group({
       _id: '',
@@ -45,7 +64,7 @@ export class ToolService {
   UploadImage(file : File) {
     return this.http.post(this.BaseURI + '/avatar/',file);
   }
-  
+
   UpdateImage(file : File) {
     return this.http.put(this.BaseURI + '/avatar/update/'+this.formModel.value._id,file);
   }
@@ -53,11 +72,11 @@ export class ToolService {
   getAll(){
     return this.http.get(this.BaseURI+'/getAll')
   }
-  
+
   GroupedByCategory(){
     return this.http.get(this.BaseURI+'/GroupedByCategory')
   }
-  
+
   getById(id : string){
     return this.http.get(this.BaseURI+'/'+id)
   }

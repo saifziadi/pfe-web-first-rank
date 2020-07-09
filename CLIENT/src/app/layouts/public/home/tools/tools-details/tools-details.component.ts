@@ -1,3 +1,4 @@
+import { PaymentComponent } from './../../payment/payment.component';
 import { NotificationsService } from './../../../../../services/notifications.service';
 import { Component, ViewChild } from '@angular/core';
 import { ToolService } from 'app/services/Tool.service';
@@ -62,6 +63,7 @@ export class ToolsDetailsComponent {
     }
     console.log(this.toolService.formModel.value);
   }
+
 
   getAllReviews(){
     this.reviewService.getAll()

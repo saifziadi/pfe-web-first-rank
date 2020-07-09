@@ -22,7 +22,7 @@ export class PaymentService {
       lastname: body.lastname,
       adresse: body.adresse,
       toolId: body.toolId,
-      imgUrl: body.imgUrl,
+      imageUrl: body.imageUrl,
       status : body.status,
       createdAt: body.createdAt,
     })
@@ -35,7 +35,7 @@ export class PaymentService {
       lastname: ['', [Validators.required]],
       adresse: ['', [Validators.required]],
       toolId: ['', [Validators.required]],
-      imgUrl: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required]],
       status : [false, [Validators.required]],
       createdAt: [new Date(), [Validators.required]],
     })
