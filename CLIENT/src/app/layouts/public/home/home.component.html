@@ -22,6 +22,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{tool.title}}</h5>
                     <p class="card-text">{{tool.description}}</p>
+                    <a routerLink="/tool/details" class="btn btn-outline-info mt-5">See Tool Details</a>
+                    <a routerLink="/payement" class="btn btn-info mt-5">Buy Now</a>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Creation Date {{tool.createdAt | date : 'medium'}}</small>
@@ -29,7 +31,7 @@
             </div>
         </div>
       </div>
-      <a routerLink="/tool/list" class="btn btn-info">See All Tools</a>
+      <a routerLink="/tool/list" class="btn btn-outline-info mt-5">See All Tools</a>
     </div>
   </div>
 
