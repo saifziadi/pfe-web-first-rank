@@ -1,11 +1,34 @@
-import { Controller, HttpStatus, Res, Get, Param, NotFoundException, Post, Body, Put, Delete } from '@nestjs/common';
+import { diskStorage } from 'multer';
+import { Controller, HttpStatus, Res, Get, Param, NotFoundException, Post, Body, Put, Delete, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { PayementService } from './payment.service';
+import { AuthGuard } from '@nestjs/passport';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { extname } from 'path';
+import { ConfigService } from 'src/core/config/config.service';
 
-@Controller('Payement')
+@Controller('payment')
 export class PayementController {
     
-    constructor(private PayementService: PayementService) { }
+    constructor(private PayementService: PayementService,private configService :ConfigService) { }
 
+
+    @Post('avatar/')
+    @UseGuards(AuthGuard('jwt'))
+    @UseInterceptors(FileInterceptor('file',
+        {
+            storage: diskStorage({
+                destination: './avatars/payments',
+                filename: (req, file, cb) => {
+                    const randomName = Array(32).fill(null).map(() => (Math.round(Math.random() * 16)).toString(16)).join('')
+                    return cb(null, `${randomName}${extname(file.originalname)}`)
+                }
+            })
+        }
+    ))
+    async uploadAvatar(@Res() res, @UploadedFile() file) {
+        let originalpath = this.configService.get('APP_URI') + file.path
+        return res.status(HttpStatus.OK).json(originalpath);
+    }
 
         // Retrieve documents list
         @Get('getAll')

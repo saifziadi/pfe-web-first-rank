@@ -33,8 +33,7 @@
                                 <ng-template #contentBloc>
                                     <p class="card-content">{{toolService.formModel.value.content}}</p>
                                 </ng-template>
-                                <label for="myfile"><a  style="color: white;" class="btn btn-info btn-round">Upload</a></label>
-                                <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;" (change)="UploadImage($event.target.files)">
+                              
                             </div>
                         </div>
 
@@ -58,6 +57,8 @@
                                 This field should not be empty.</mat-error>
                         </mat-form-field>
                     </div>
+                    <label for="myfile"><a  style="color: white;" class="btn btn-info btn-round">Payment Proof</a></label>
+                    <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;" (change)="UploadImage($event.target.files)">
                 </form>
                 <button type="submit" class="btn btn-outline-info" (click)="onSubmit()"
                     [disabled]="paymentService.formModel.invalid">Submit</button>

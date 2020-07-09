@@ -12,7 +12,6 @@ import { ToolsDetailsComponent } from './tools/tools-details/tools-details.compo
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'payment', component: PaymentComponent },
   { path: 'blog/details', component: BlogDetailsComponent },
   { path: 'blog/list', component: BlogListComponent },
   { path: 'review', component: ReviewPostComponent },

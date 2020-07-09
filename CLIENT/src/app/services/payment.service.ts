@@ -37,8 +37,12 @@ export class PaymentService {
       toolId: ['', [Validators.required]],
       imageUrl: ['', [Validators.required]],
       status : [false, [Validators.required]],
-      createdAt: [new Date(), [Validators.required]],
+      createdAt: new Date(),
     })
+  }
+
+  UploadImage(file : File) {
+    return this.http.post(this.BaseURI + '/avatar/',file);
   }
 
   getAll(){
@@ -53,9 +57,9 @@ export class PaymentService {
     return this.http.get(this.BaseURI+'/check/'+id)
   }
 
-  createNew(body){
+  createNew(){
     delete this.formModel.value._id
-    return this.http.post(this.BaseURI+'/create',body)
+    return this.http.post(this.BaseURI+'/create',this.formModel.value)
   }
 
   editById(id : string , body){
