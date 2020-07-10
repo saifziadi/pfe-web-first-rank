@@ -13,8 +13,7 @@
                 <button class="btn btn-outline-info " *ngFor="let item of tools" [ngClass]="{'active':item.active}"
                   (click)="activateCategory(item._id)">{{item._id}}</button>
                 <mat-form-field class="w-100" floatLabel="never">
-                  <!-- <input matInput placeholder="Search Products"  [(ngModel)]="toolService.toolName" (keyup.enter)="toolService.applyFilter()"> -->
-                  <input matInput placeholder="Search Tools">
+                  <input matInput placeholder="Search Tools" >
                 </mat-form-field>
               </div>
             </div>
@@ -25,7 +24,7 @@
   </div>
 </div>
 <div class="card-deck d-flex justify-content-center flex-wrap">
-  <div *ngFor="let tool of toolService.cardsObs | async" class="col-md-4">
+  <div *ngFor="let tool of groupedTools" class="col-md-4">
     <div class="card">
       <a style="cursor: pointer;" (click)="goToDetails(tool)">
         <img class="card-img-top img-fluid" [src]="tool.imageUrl" alt="Card image cap">

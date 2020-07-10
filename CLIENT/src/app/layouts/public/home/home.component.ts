@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit {
       })
   }
 
+
+
   openPayment(tool){
     this.toolService.fillFormModel(tool)
     this.toolService.openDialog()
