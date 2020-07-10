@@ -59,15 +59,13 @@
             </div>
             <div class="col-md-4 ">
                 <div class="card card-profile">
-                    <div class="card-avatar" style="width: 150px;height: 150px;background-color: white;">
-                        <!-- <img class="img" src="./assets/img/faces/marc.jpg" /> -->
-                        <div style="padding-top: 50px;font-size: 60px;">
-                            <p *ngIf="!blogService.formModel.value.title;else titleBlocChar"><strong>B</strong>
-                            </p>
-                            <ng-template #titleBlocChar>
-                                <p><strong>{{blogService.formModel.value.title[0]}}</strong></p>
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" class="img-fluid" *ngIf="blogService.formModel.value.imageUrl && blogService.formModel.value.imageUrl!='http://localhost:3000/avatars/' ;else avatarBloc" [src]="blogService.formModel.value.imageUrl" />
+                            <ng-template #avatarBloc>
+                                <img src="img" class="img-fluid" src="../../../../assets/img/toolimage.jpg">
                             </ng-template>
-                        </div>
+                        </a>
                     </div>
                     <div class="card-body">
                         <h6 class="card-category text-gray">Blog</h6>
@@ -90,6 +88,8 @@
                         <ng-template #contentBloc>
                             <p class="card-content">{{blogService.formModel.value.content}}</p>
                         </ng-template>
+                        <label for="myfile"><a  style="color: white;" class="btn btn-info btn-round">Upload</a></label>
+                        <input type="file" id="myfile" name="myfile" accept="image/*" style="display:none;" (change)="UploadImage($event.target.files)">
                     </div>
                 </div>
             </div>

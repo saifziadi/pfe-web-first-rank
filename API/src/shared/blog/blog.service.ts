@@ -10,13 +10,13 @@ export class BlogService {
     constructor(@InjectModel('Blog') private readonly Model: Model<Blog>) { }
 
     // fetch all documents
-    async getAll(): Promise<Event[]> {
+    async getAll(): Promise<Blog[]> {
         const result = await this.Model.find();
         return result;
     }
     
     // Get a single Document
-    async getById(id): Promise<Event> {
+    async getById(id): Promise<Blog> {
         const result = await this.Model.findById(id);
         return result;
     }
@@ -28,12 +28,12 @@ export class BlogService {
     }
 
     // post a single document
-    async addNewDocument(body: any): Promise<Event> {
+    async addNewDocument(body: any): Promise<Blog> {
         const newResult = await this.Model(body);
         return newResult.save();
     }
     // Edit document details
-    async updateDocumet(id, body: any): Promise<Event> {
+    async updateDocumet(id, body: any): Promise<Blog> {
         const result = await this.Model
             .findByIdAndUpdate(id, body, { new: true });
         return result;

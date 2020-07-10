@@ -31,4 +31,22 @@ export class BlogEditComponent {
     })
   }
 
+  UploadImage(files) {
+    var file: File = files[0];
+    console.log(file)
+    if (file) {
+      const formData: any = new FormData();
+      formData.append('file', file);
+      this.blogService.UpdateImage(formData)
+        .subscribe(res => {
+          console.log(res);
+          console.log("image result : ", res)
+          this.blogService.formModel.patchValue({ imageUrl: res })
+        },
+          err => {
+            console.error(err);
+          })
+    }
+  }
+
 }

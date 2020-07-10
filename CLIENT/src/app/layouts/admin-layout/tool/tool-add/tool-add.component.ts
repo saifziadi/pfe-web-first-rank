@@ -29,7 +29,6 @@ export class ToolAddComponent {
       })
   }
 
-
   UploadImage(files) {
     var file: File = files[0];
     console.log(file)
@@ -40,14 +39,11 @@ export class ToolAddComponent {
         .subscribe(res => {
           console.log(res);
           console.log("image result : ", res)
-          this.toolService.formModel.patchValue({imageUrl : res})
+          this.toolService.formModel.patchValue({ imageUrl: res })
         },
           err => {
             console.error(err);
           })
     }
-
   }
-
-
 }

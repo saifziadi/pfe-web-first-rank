@@ -18,7 +18,8 @@ export class BlogService {
     this.formModel.patchValue({
       _id: body._id,
       title: body.title,
-      content: body.description,
+      content: body.content,
+      imageUrl: body.imageUrl,
       status : body.status,
       createdAt: body.createdAt,
     })
@@ -29,9 +30,18 @@ export class BlogService {
       _id: '',
       title: ['', [Validators.required]],
       content: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required]],
       status : [false, [Validators.required]],
       createdAt: [new Date(), [Validators.required]],
     })
+  }
+
+  UploadImage(file : File) {
+    return this.http.post(this.BaseURI + '/avatar/',file);
+  }
+
+  UpdateImage(file : File) {
+    return this.http.put(this.BaseURI + '/avatar/update/'+this.formModel.value._id,file);
   }
 
   getAll(){

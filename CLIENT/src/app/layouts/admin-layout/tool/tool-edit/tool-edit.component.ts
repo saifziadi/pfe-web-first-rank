@@ -8,28 +8,28 @@ import { Router } from '@angular/router';
   templateUrl: './tool-edit.component.html',
   styleUrls: ['./tool-edit.component.css']
 })
-export class ToolEditComponent  {
+export class ToolEditComponent {
 
-  constructor(private toolService : ToolService,
-    private notificationsService :NotificationsService,
-    private router : Router) {
+  constructor(private toolService: ToolService,
+    private notificationsService: NotificationsService,
+    private router: Router) {
     if (!this.toolService.formModel.value._id) {
       this.router.navigateByUrl('tools/list')
-    }else{
+    } else {
       // console.log("formModel : ",this.toolService.formModel.value) 
     }
-   }
+  }
 
-  onSubmit(){
-    console.log("this.formModel.value : ",this.toolService.formModel.value)
-    this.toolService.editById(this.toolService.formModel.value._id,this.toolService.formModel.value)
-    .subscribe(response=>{
-      console.log("Edited successfully : ",response)
-      this.notificationsService.showNotification('success','Successful Edition - tool Successfully Edited.')
-    },err=>{
-      this.notificationsService.showNotification('danger','Something Wrong - Please Enter Valid Information.')
+  onSubmit() {
+    console.log("this.formModel.value : ", this.toolService.formModel.value)
+    this.toolService.editById(this.toolService.formModel.value._id, this.toolService.formModel.value)
+      .subscribe(response => {
+        console.log("Edited successfully : ", response)
+        this.notificationsService.showNotification('success', 'Successful Edition - tool Successfully Edited.')
+      }, err => {
+        this.notificationsService.showNotification('danger', 'Something Wrong - Please Enter Valid Information.')
 
-    })
+      })
   }
 
   UploadImage(files) {
@@ -42,13 +42,12 @@ export class ToolEditComponent  {
         .subscribe(res => {
           console.log(res);
           console.log("image result : ", res)
-          this.toolService.formModel.patchValue({imageUrl : res})
+          this.toolService.formModel.patchValue({ imageUrl: res })
         },
           err => {
             console.error(err);
           })
     }
-
   }
 
 }
