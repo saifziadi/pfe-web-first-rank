@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.css']
 })
-export class BlogListComponent implements OnInit {
+export class BlogListComponent {
   blogs : any = []
 
   constructor(private blogService : BlogService,private router : Router) {
@@ -20,12 +20,10 @@ export class BlogListComponent implements OnInit {
       this.blogs = res
     })
    }
-  ngOnInit(): void {
-  }
 
   goToDetails(blog){
     this.blogService.fillFormModel(blog)
     this.router.navigateByUrl('/blog/details')
-}
+  }
 
 }

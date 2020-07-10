@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'environments/environment';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { PaymentComponent } from 'app/layouts/public/home/payment/payment.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,7 +19,32 @@ export class ToolService {
   }
   BaseURI = environment.apiUrl+"tool";
 
+  toolName = ""
+
   formModel : FormGroup
+
+  fillToolName(name){
+    this.toolName = name
+  }
+  fillTools(tools){
+    this.allTools = tools
+  }
+  
+  allTools : any = []
+
+  
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+
+  cardsObs: Observable<any>;
+
+  applyFilter() {
+    let value = this.toolName.trim().toLowerCase().toString()
+    console.log(value);
+    let res = []
+    res =this.allTools.map(x=>x.title.includes(this.toolName))
+    this.dataSource = new MatTableDataSource<any>(res);
+    this.cardsObs = this.dataSource.connect();
+  }
 
   fillFormModel(body){
     this.formModel.patchValue({

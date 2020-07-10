@@ -1,32 +1,44 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="card text-center">
-  <div class="card-header">
-    <h3 class="card-title">Tools</h3>
-    <div class="d-flex justify-content-center">
-      <button class="btn btn-outline-info" *ngFor="let item of tools" [ngClass]="{'active':item.active}"
-        (click)="activateCategory(item._id)">{{item._id}}</button>
-    </div>
-  </div>
-  <div class="card-body">
+<div class="row">
+  <div class="container">
+    <div class="card p-5">
+      <div class="container-fluid">
+        <div class="row text-center">
 
-    <div class="card-deck d-flex justify-content-center">
-      <div *ngFor="let tool of groupedTools" class="col-md-4">
-        <div class="card">
-          <a style="cursor: pointer;" (click)="goToDetails(tool)">
-            <img class="card-img-top img-fluid" [src]="tool.imageUrl" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{tool.title}}</h5>
-            <p class="card-text">{{tool.description}}</p>
-            <a (click)="goToDetails(tool)" class="btn btn-outline-info mt-5">See Tool Details</a>
-            <a (click)="openPayment(tool)" class="btn btn-info mt-5">Buy Now</a>
-
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Creation Date {{tool.createdAt | date : 'medium'}}</small>
+          <div class="preview col-md-12">
+            <div class="preview-pic tab-content">
+              <div class="tab-pane active" id="pic-1">
+                <h3 class="price">Categories</h3>
+                <button class="btn btn-outline-info " *ngFor="let item of tools" [ngClass]="{'active':item.active}"
+                  (click)="activateCategory(item._id)">{{item._id}}</button>
+                <mat-form-field class="w-100" floatLabel="never">
+                  <!-- <input matInput placeholder="Search Products"  [(ngModel)]="toolService.toolName" (keyup.enter)="toolService.applyFilter()"> -->
+                  <input matInput placeholder="Search Tools">
+                </mat-form-field>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-deck d-flex justify-content-center flex-wrap">
+  <div *ngFor="let tool of toolService.cardsObs | async" class="col-md-4">
+    <div class="card">
+      <a style="cursor: pointer;" (click)="goToDetails(tool)">
+        <img class="card-img-top img-fluid" [src]="tool.imageUrl" alt="Card image cap">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{tool.title}}</h5>
+        <p class="card-text">{{tool.description}}</p>
+        <a (click)="goToDetails(tool)" class="btn btn-outline-info mt-5">See Tool Details</a>
+        <a (click)="openPayment(tool)" class="btn btn-info mt-5">Buy Now</a>
+
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Creation Date {{tool.createdAt | date : 'medium'}}</small>
       </div>
     </div>
   </div>
