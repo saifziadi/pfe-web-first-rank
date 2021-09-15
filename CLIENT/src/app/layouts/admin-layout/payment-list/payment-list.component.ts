@@ -25,6 +25,13 @@ export class PaymentListComponent {
     this.getAllPayments()
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   openDialog(imageUrl) {
 
     const dialogConfig = new MatDialogConfig();

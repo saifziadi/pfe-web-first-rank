@@ -43,10 +43,10 @@ export class ToolsDetailsComponent {
   reviews : any = [];
 
   constructor(
-    private toolService: ToolService,
-    private accountService: AccountService,
+    public toolService: ToolService,
+    public accountService: AccountService,
     private notificationsService: NotificationsService,
-    private reviewService: ReviewService,
+    public reviewService: ReviewService,
     private router: Router
     ) {
     if (!this.toolService.formModel.value._id) {

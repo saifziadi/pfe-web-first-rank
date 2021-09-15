@@ -11,7 +11,7 @@ export class BlogAddComponent {
 
   
   constructor(
-    private blogService : BlogService,
+    public blogService : BlogService,
     private notificationsService :NotificationsService,
   ) { 
     this.blogService.createFormModel()

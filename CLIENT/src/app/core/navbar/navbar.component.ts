@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private isAdmin: boolean = false;
 
-    constructor(location: Location, private element: ElementRef, private router: Router,private accountService : AccountService) {
+    constructor(location: Location, private element: ElementRef, private router: Router,public accountService : AccountService) {
         this.location = location;
         this.sidebarVisible = false;
         let token = this.accountService.getDecodedToken();

@@ -13,7 +13,7 @@ export class EventsEditComponent {
   roles: any = ["CM","CC","NOROLE"]
 
   date: string;
-  constructor(private eventService : EventsService,
+  constructor(public eventService : EventsService,
     private notificationsService :NotificationsService,
     private router : Router) {
     if (!this.eventService.formModel.value._id) {

@@ -16,7 +16,13 @@ export class ContactListComponent {
   dataSource :any = new MatTableDataSource();
   displayedColumns: string[] = ['email','subject','content','createdAt', 'action'];
 
-
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  
   constructor(private messageService : MessageService) {
     this.getAllMessages()
    }
