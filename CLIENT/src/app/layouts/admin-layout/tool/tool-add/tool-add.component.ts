@@ -10,7 +10,7 @@ import { ToolService } from 'app/services/Tool.service';
 export class ToolAddComponent {
 
   constructor(
-    private toolService: ToolService,
+    public toolService: ToolService,
     private notificationsService: NotificationsService,
   ) {
     this.toolService.createFormModel()

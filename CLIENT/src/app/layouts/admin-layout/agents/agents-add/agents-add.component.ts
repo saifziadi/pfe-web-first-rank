@@ -14,7 +14,7 @@ export class AgentsAddComponent {
   
   roles: any = ["admin","CC","CM","NOROLE"]
 
-  constructor(private usersService : UsersService,
+  constructor(public usersService : UsersService,
     private notificationsService: NotificationsService) { 
       this.usersService.createFormModel()
     }
@@ -32,7 +32,7 @@ export class AgentsAddComponent {
       });
     }
 
-  onSubmit() {
+  onSubmit(form) {
     
     let body = {
       password : this.usersService.formModel.value.passwords.password,

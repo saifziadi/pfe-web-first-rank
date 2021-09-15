@@ -13,7 +13,7 @@ export class AgentsEditComponent {
 
   roles: any = ["admin","CC","CM","NOROLE"]
 
-  constructor(private usersService: UsersService,
+  constructor(public usersService: UsersService,
     private router: Router,
     private notificationsService: NotificationsService) {
     if (!this.usersService.formModel.value._id) {

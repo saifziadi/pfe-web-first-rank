@@ -23,6 +23,13 @@ export class ReviewListComponent {
 
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   getAllReviews(){
     this.reviewService.getAll()
     .subscribe((res:any)=>{

@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[];
   isAdmin: any= "";
 
-  constructor(private accountService : AccountService){
+  constructor(public accountService : AccountService){
         let token =this.accountService.getDecodedToken();
     let currentRoles = token.roles;
     this.isAdmin = currentRoles.some(role => currentRoles.includes("admin"));

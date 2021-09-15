@@ -16,10 +16,10 @@ export class PaymentComponent implements OnInit {
   isConnected: boolean = false;
 
   constructor(
-    private paymentService: PaymentService,
-    private dialogRef: MatDialogRef<PaymentComponent>,
-    private toolService: ToolService,
-    private accountService: AccountService,
+    public paymentService: PaymentService,
+    public dialogRef: MatDialogRef<PaymentComponent>,
+    public toolService: ToolService,
+    public accountService: AccountService,
     private notificationsService: NotificationsService,
     private router: Router
   ) { }

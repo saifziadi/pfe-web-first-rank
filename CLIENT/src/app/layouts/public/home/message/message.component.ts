@@ -13,7 +13,7 @@ export class MessageComponent {
   @ViewChild('regForm') myForm: NgForm;
 
   constructor(
-    private messageService : MessageService,
+    public messageService : MessageService,
     private notificationsService: NotificationsService,
     ) { }
 

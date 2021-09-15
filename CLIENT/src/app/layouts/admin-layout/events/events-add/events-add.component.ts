@@ -13,7 +13,7 @@ export class EventsAddComponent {
   roles: any = ["CM","CC","NOROLE"]
 
   constructor(
-    private eventService : EventsService,
+    public eventService : EventsService,
     private notificationsService :NotificationsService,
   ) { 
     this.eventService.createFormModel()

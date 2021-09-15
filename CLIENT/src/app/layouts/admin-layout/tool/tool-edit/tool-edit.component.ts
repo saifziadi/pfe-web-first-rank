@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ToolEditComponent {
 
-  constructor(private toolService: ToolService,
+  constructor(public toolService: ToolService,
     private notificationsService: NotificationsService,
     private router: Router) {
     if (!this.toolService.formModel.value._id) {
